@@ -1,0 +1,16 @@
+Install-Package Ninject -version 3.0.1.10 -projectname SportsStore.WebUI
+Install-Package Ninject.Web.Common -version 3.0.0.7 -projectname SportsStore.WebUI
+Install-Package Ninject.MVC3 -version 3.0.0.6 -projectname SportsStore.WebUI
+Install-Package Ninject -version 3.0.1.10 -projectname SportsStore.UnitTests
+Install-Package Ninject.Web.Common -version 3.0.0.7 -projectname SportsStore.UnitTests
+Install-Package Ninject.MVC3 -version 3.0.0.6 -projectname SportsStore.UnitTests
+Install-Package Moq -version 4.1.1309.1617 -projectname SportsStore.WebUI
+Install-Package Moq -version 4.1.1309.1617 -projectname SportsStore.UnitTests
+Install-Package Microsoft.Aspnet.Mvc -version 5.0.0 -projectname SportsStore.Domain
+Install-Package Microsoft.Aspnet.Mvc -version 5.0.0 -projectname SportsStore.UnitTests
+Install-Package EntityFramework -projectname SportsStore.Domain
+Install-Package EntityFramework -projectname SportsStore.WebUI
+Update-Package Microsoft.Aspnet.Mvc -version 5.2.3 -projectname SportsStore.Domain
+Update-Package Microsoft.Aspnet.Mvc -version 5.2.3 -projectname SportsStore.UnitTests
+Uninstall-Package -version 3.0.0 bootstrap -projectname SportsStore.WebUI
+Install-Package -version 3.0.0 bootstrap -projectname SportsStore.WebUI

@@ -3,3 +3,5 @@ packages
 bin
 obj
 *.csproj.user
+Web.Debug.config
+Web.Release.config

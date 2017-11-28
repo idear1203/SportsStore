@@ -1,6 +1,7 @@
 ﻿using Ninject;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Web.Mvc;
 using Moq;
 using SportsStore.Domain.Abstract;
@@ -16,8 +17,6 @@ namespace SportsStore.WebUI.Infrastructure
             Mock,
             LocalDb
         }
-
-        private DbMode dbMode = DbMode.LocalDb;
 
         private IKernel kernel;
 
@@ -39,14 +38,22 @@ namespace SportsStore.WebUI.Infrastructure
 
         private void AddBindings()
         {
-            if (dbMode == DbMode.Mock)
-            {
-                BindToMockDb();
-            }
-            else if (dbMode == DbMode.LocalDb)
+            DbMode dbMode;
+            if (Enum.TryParse(ConfigurationManager.AppSettings["DbMode"], out dbMode) && dbMode == DbMode.LocalDb)
             {
                 BindToLocalDb();
             }
+            else
+            {
+                BindToMockDb();
+            }
+
+            EmailSettings emailSettings = new EmailSettings
+            {
+                WriteAsFile = bool.Parse(ConfigurationManager.AppSettings["Email.WriteAsFile"] ?? "false")
+            };
+
+            kernel.Bind<IOrderProcessor>().To<EmailOrderProcessor>().WithConstructorArgument("settings", emailSettings);
         }
 
         private void BindToMockDb()

@@ -7,6 +7,8 @@ using Moq;
 using SportsStore.Domain.Abstract;
 using SportsStore.Domain.Concrete;
 using SportsStore.Domain.Entities;
+using SportsStore.WebUI.Infrastructure.Abstract;
+using SportsStore.WebUI.Infrastructure.Concrete;
 
 namespace SportsStore.WebUI.Infrastructure
 {
@@ -54,6 +56,7 @@ namespace SportsStore.WebUI.Infrastructure
             };
 
             kernel.Bind<IOrderProcessor>().To<EmailOrderProcessor>().WithConstructorArgument("settings", emailSettings);
+            kernel.Bind<IAuthProvier>().To<FormAuthProvider>();
         }
 
         private void BindToMockDb()
@@ -65,6 +68,7 @@ namespace SportsStore.WebUI.Infrastructure
                 new Product { Name = "Surf board", Price = 179 },
                 new Product { Name = "Running shoes", Price = 95 }
             });
+
             kernel.Bind<IProductRepository>().ToConstant(mock.Object);
         }
 

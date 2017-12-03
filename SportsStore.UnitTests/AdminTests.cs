@@ -32,9 +32,9 @@ namespace SportsStore.UnitTests
 
             // Assertions
             Assert.AreEqual(result.Length, 3);
-            Assert.AreEqual("P1", result[0]);
-            Assert.AreEqual("P2", result[1]);
-            Assert.AreEqual("P3", result[2]);
+            Assert.AreEqual("P1", result[0].Name);
+            Assert.AreEqual("P2", result[1].Name);
+            Assert.AreEqual("P3", result[2].Name);
         }
 
         [TestMethod]

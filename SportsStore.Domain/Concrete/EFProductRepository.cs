@@ -29,6 +29,8 @@ namespace SportsStore.Domain.Concrete
                     dbEntity.Description = product.Description;
                     dbEntity.Price = product.Price;
                     dbEntity.Category = product.Category;
+                    dbEntity.ImageData = product.ImageData;
+                    dbEntity.ImageMimeType = product.ImageMimeType;
                 }
             }
 

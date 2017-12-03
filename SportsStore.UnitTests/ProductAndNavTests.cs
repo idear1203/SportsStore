@@ -13,7 +13,7 @@ using SportsStore.WebUI.Models;
 namespace SportsStore.UnitTests
 {
     [TestClass]
-    public class UnitTest1
+    public class ProductAndNavTests
     {
         [TestMethod]
         public void TestCanPaginate()
